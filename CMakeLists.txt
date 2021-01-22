@@ -8,6 +8,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 find_package(Boost REQUIRED program_options)
 
+find_package(Threads REQUIRED)
+
 add_executable(MainServ main_serv.cpp)
 
-target_link_libraries(MainServ Boost::program_options)
+target_link_libraries(MainServ Boost::program_options Threads::Threads)
+
+
+add_executable(MainClient main_client.cpp)
+
+target_link_libraries(MainClient Boost::program_options Threads::Threads)
